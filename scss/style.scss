@@ -1,0 +1,399 @@
+//файл обнуляющих стилей
+@import "nullstyle.scss";
+
+//шрифты
+@import url("https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@400; 600&display=swap");
+
+//----------------------------------------------------------------------------
+//переменные для блока
+//цвета
+$main-color: #383838;
+$outer-color: #181818;
+$hover-color: #797979;
+$main-border-color: #797979;
+$main-text-color: #dddddd;
+
+//размеры
+$main-padding: 15px;
+$inner-padding: 15px;
+$border-width: 1px;
+$border-radius: 15px;
+$inner-border-radius: 8px;
+
+//шаблоны
+@mixin main-box () {
+  background-color: $main-color;
+  padding: $inner-padding;
+  border: $border-width solid $main-border-color;
+  border-radius: $border-radius;
+}
+
+@mixin inner-box () {
+  background-color: $hover-color;
+  padding: $inner-padding;
+  border-radius: $inner-border-radius;
+}
+
+//----------------------------------------------------------------------------
+
+body {
+  background-color: $outer-color;
+  color: $main-text-color;
+  font-family: "Shantell Sans", sans-serif;
+  font-size: 18px;
+}
+
+.page-body {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  @include main-box();
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top: 0;
+  margin-bottom: $main-padding;
+  position: sticky;
+  z-index: 10;
+  top: 0;
+
+  &__logo-box {}
+
+  &__search-box {}
+
+  &__music-box {}
+
+  &__avatar-box {}
+}
+
+.logo-box {
+  display: flex;
+  align-items: center;
+  margin-right: $inner-padding;
+
+  &__icon-box {
+    max-width: 40px;
+    min-width: 40px;
+    margin-right: $inner-padding;
+  }
+
+  &__icon {
+    width: 100%;
+  }
+
+  &__logo {
+    font-size: 26px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  margin-right: $inner-padding;
+  padding: 5px;
+  background-color: $hover-color;
+  border-radius: 8px;
+  max-width: 200px;
+  min-width: 200px;
+
+  &__icon-box {
+    max-width: 20px;
+    min-width: 20px;
+    margin-right: $inner-padding;
+  }
+
+  &__icon {
+    width: 100%;
+  }
+
+  &__search {}
+}
+
+.music-box {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+
+  &__btn-box {}
+
+  &__prev {}
+
+  &__play {}
+
+  &__next {}
+
+  &__music-name {}
+}
+
+.avatar-box {
+  display: flex;
+  align-items: center;
+
+  &__icon-box {
+    max-width: 40px;
+    min-width: 40px;
+  }
+
+  &__icon {
+    margin-right: $inner-padding;
+  }
+
+  &__user-pic {
+    width: 100%;
+    border-radius: 50%;
+  }
+}
+
+.page-row {
+  display: flex;
+  align-items: flex-start;
+
+  &__left-section {
+    @include main-box();
+    padding: $inner-padding/2;
+  }
+
+  &__page-main {
+    padding-left: $main-padding;
+  }
+}
+
+.left-section {
+  position: sticky;
+  z-index: 10;
+
+  &__page-menu {}
+
+  &__section-footer {}
+}
+
+.page-menu {
+  margin-bottom: $main-padding;
+
+  &__list {}
+
+  &__item {
+    display: flex;
+    align-items: center;
+    padding: $inner-padding/2;
+    background-color: $main-color;
+    border-radius: 8px;
+
+    &:hover {
+      background-color: $hover-color;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    margin-right: $inner-padding;
+  }
+
+  &__link {
+    color: $main-text-color;
+    font-family: "Shantell Sans", sans-serif;
+    font-size: 18px;
+    white-space: nowrap;
+  }
+}
+
+.section-footer {
+  padding: $inner-padding/2;
+
+  &__link {
+    color: $main-text-color;
+    font-family: "Shantell Sans", sans-serif;
+    font-size: 14px;
+  }
+}
+
+.page-main {
+  &__post-box {}
+}
+
+.post-box {
+  @include main-box();
+
+  &:last-child {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: 0;
+  }
+
+  &__autor-box {
+    display: flex;
+    align-items: center;
+    margin-bottom: $inner-padding;
+  }
+
+  &__icon-box {
+    max-width: 50px;
+    min-width: 50px;
+    margin-right: $inner-padding;
+  }
+
+  &__icon {
+    width: 100%;
+    border-radius: 50%;
+  }
+
+  &__autor {
+    font-size: 22px;
+  }
+
+  &__content {}
+
+  &__text {
+    font-family: Comfortaa, sans-serif;
+    font-size: 16px;
+    line-height: 1.5em;
+    margin-bottom: $inner-padding;
+  }
+
+  &__img-box {
+    text-align: center;
+    margin-bottom: $inner-padding;
+  }
+
+  &__img {
+    height: 100%;
+    width: 100%;
+    border-radius: $border-radius;
+  }
+
+  &__comment-form,
+  &__comment-box {
+    @include inner-box();
+    margin-bottom: $inner-padding;
+  }
+}
+
+.comment-form {
+  @include inner-box();
+  margin-bottom: $inner-padding;
+  display: flex;
+  flex-direction: column;
+  padding: 0 $inner-padding/2;
+  position: relative;
+
+  &__textarea,
+  &__input-name,
+  &__input-date,
+  &__btn {
+    @include inner-box();
+    font-family: Comfortaa, sans-serif;
+    font-size: 16px;
+    color: $main-text-color;
+    padding: 0 $inner-padding/2;
+
+    &::placeholder {
+      font-family: Comfortaa, sans-serif;
+      font-size: 16px;
+      color: $main-text-color;
+    }
+
+    &:focus::-webkit-input-placeholder {
+      color: transparent;
+    }
+  }
+
+  &__textarea {
+    padding: $inner-padding $inner-padding/2;
+    resize: none;
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  &__input-box {
+    display: flex;
+    margin-bottom: $inner-padding;
+    position: relative;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  &__input-name {
+    border: 2px solid $main-color;
+    flex-grow: 1;
+    margin-right: $inner-padding;
+  }
+
+  &__error {
+    position: absolute;
+    font-family: Comfortaa, sans-serif;
+    font-size: 14px;
+    background-color: rgb(185, 137, 137);
+    padding: 1px;
+    border-radius: 5px;
+    color: black;
+  }
+
+  &__input-date {
+    border: 2px solid $main-color;
+  }
+
+  &__btn {
+
+    &:hover {
+      color: $outer-color;
+      text-shadow: 2px 2px 2px $main-text-color;
+    }
+  }
+}
+
+.comment-box {
+  position: relative;
+  padding: $inner-padding;
+
+  &__commentator {
+    margin-bottom: $inner-padding;
+  }
+
+  &__comment {
+    font-family: Comfortaa, sans-serif;
+    font-size: 16px;
+    line-height: 1.5em;
+    margin-bottom: $inner-padding;
+  }
+
+  &__date {
+    font-family: Comfortaa, sans-serif;
+    font-size: 12px;
+  }
+
+  &__like-box {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: $inner-padding/2;
+    right: $inner-padding;
+  }
+
+  &__like-counter {
+    margin-right: $inner-padding;
+    font-family: "Shantell Sans", sans-serif;
+    font-size: 16px;
+  }
+
+  &__like-btn {
+    background-color: $hover-color;
+  }
+
+  &__delete-btn {
+    position: absolute;
+    bottom: $inner-padding/2;
+    right: $inner-padding;
+    background-color: $hover-color;
+  }
+}
